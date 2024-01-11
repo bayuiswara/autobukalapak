@@ -23,35 +23,46 @@ public class BukalapakPages {
     public void buttonSearch(){
         driver.findElement(buttonsearch).click();
     }
-    private final By verifyResultsearch = By.xpath("/html/body/div[2]/div/section/div/div/h1");
-    public String verifyresultsearch() {
+    private final By verifyresultsearch = By.xpath("/html/body/div[2]/div/section/div/div/h1");
+    public String verifyResultsearch() {
 
-        return driver.findElement(verifyResultsearch).getText();
+        return driver.findElement(verifyresultsearch).getText();
     }
     private final By buttonsorting = By.xpath("//*[@id=\"product-explorer-container\"]/div/div[1]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div");
-    private final By buttonHighprice = By.xpath("//*[@id=\"product-explorer-container\"]/div/div[1]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div[2]/ul/li[4]/div");
     public void buttonSorting() {
         driver.findElement(buttonsorting).click();
-        driver.findElement(buttonHighprice).click();
     }
-    private final By verifyresultSorting = By.xpath("//*[@id=\"product-explorer-container\"]/div/div[1]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div/div[1]/div/p");
-    public String verifyresultsorting() {
-        return driver.findElement(verifyresultSorting).getText();
+    private final By buttonhighprice = By.xpath("//*[@id=\"product-explorer-container\"]/div/div[1]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div[2]/ul/li[4]/div");
+    public void buttonHighprice(){
+        driver.findElement(buttonhighprice).click();
+    }
+    private final By verifyresultsorting = By.xpath("//*[@id=\"product-explorer-container\"]/div/div[1]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div/div[1]/div/p");
+    public String verifyresultSorting() {
+        return driver.findElement(verifyresultsorting).getText();
     }
 
 
     public void scrollproduct(){
-        js.executeScript("window.scrollBy(0,950)", "");
+        js.executeScript("window.scrollBy(0,400)", "");
     }
 
-    private final By chooseProduct = By.xpath("//*[@id=\"product-explorer-container\"]/div/div[1]/div[2]/div/div[2]/div[3]/client-only/div/div/div[10]");
-    public void chooseproduct(){
-        driver.findElement(chooseProduct).click();
-    }
-    private final By verifyproductPage = By.xpath("//*[@id=\"section-main-product\"]/div[2]/div[1]/div[1]/h1");
-    public String verifyproductpage(){
-        return driver.findElement(verifyproductPage).getText();
 
+    public By getElement(String elementLinkText){
+        return By.partialLinkText(elementLinkText);
+    }
+
+    public void chooseproduct(String getElement){
+
+       driver.findElement(getElement(getElement)).click();
+    }
+    private final By verifyproductpage = By.xpath("//*[@id=\"section-main-product\"]/div[2]/div[1]/div[1]/h1");
+    public String verifyproductPage(){
+        return driver.findElement(verifyproductpage).getText();
+
+    }
+    private final By buttonlowprice = By.xpath("//*[@id=\"product-explorer-container\"]/div/div[1]/div[2]/div/div[2]/div[1]/div/div/div[1]/div/div[2]/ul/li[3]/div");
+    public void buttonLowprice(){
+        driver.findElement(buttonlowprice).click();
     }
 }
 

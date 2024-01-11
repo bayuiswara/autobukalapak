@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 
+import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import pages.BukalapakPages;
 
@@ -20,11 +21,6 @@ public class MyStepdefs {
 
     }
 
-    @io.cucumber.java.en.When("^User Input 'Bola Basket' in search bar$")
-    public void userInputBolaBasketInSearchBar() throws InterruptedException {
-        Thread.sleep(1000);
-        bl.inputText("Bola Basket");
-    }
 
     @And("User Click search")
     public void userClickSearch() {
@@ -33,25 +29,22 @@ public class MyStepdefs {
 
     @Then("Product {string} displayed")
     public void productBolaBasketDisplayed(String text) {
-        System.out.println(bl.verifyresultsearch());
-        Assertions.assertEquals(text, bl.verifyresultsearch());
+        System.out.println(bl.verifyResultsearch());
+        Assertions.assertEquals(text, bl.verifyResultsearch());
     }
 
-    @And("User sort by highest price")
-    public void userSortByHighestPrice() {
-        bl.buttonSorting();
-    }
+
 
     @Then("Product Bola Basket sort by {string}")
     public void productBolaBasketSortByTermahal(String text) {
-        System.out.println(bl.verifyresultsorting());
-        Assertions.assertEquals(text, bl.verifyresultsorting());
+        System.out.println(bl.verifyresultSorting());
+        Assertions.assertEquals(text, bl.verifyresultSorting());
     }
 
     @Then("Product page {string} displayed")
     public void productPageBolaBasketMoltenBGBGSizeFIBAApprovedDisplayed(String text) {
-        System.out.println(bl.verifyproductpage());
-        Assertions.assertEquals(text, bl.verifyproductpage());
+        System.out.println(bl.verifyproductPage());
+        Assertions.assertEquals(text, bl.verifyproductPage());
     }
 
     @And("User Scrolling Product")
@@ -60,9 +53,33 @@ public class MyStepdefs {
     }
 
 
-    @And("User choose DONIC MOBILE BALL BASKET COACHY PENAMPUNG BOLA LATIHAN TENIS MEJA ORIGINAL")
-    public void userChooseDONICMOBILEBALLBASKETCOACHYPENAMPUNGBOLALATIHANTENISMEJAORIGINAL() {
-        bl.chooseproduct();
+
+
+    @When("User Input {string} in search bar")
+    public void userInputBolaBasketInSearchBar(String teks) throws InterruptedException {
+        Thread.sleep(1000);
+        bl.inputText(teks);
+    }
+
+    @And("User choose {string}")
+    public void userChoose(String arg0) throws InterruptedException {
+        Thread.sleep(1000);
+        bl.chooseproduct(arg0);
+    }
+
+    @And("User sort by lowest price")
+    public void userSortByLowestPrice() {
+        bl.buttonLowprice();
+    }
+
+    @And("User Choose highest price")
+    public void userChooseHighestPrice() {
+        bl.buttonHighprice();
+    }
+
+    @And("User Choose Sorting")
+    public void userChooseSorting() {
+        bl.buttonSorting();
     }
 }
 

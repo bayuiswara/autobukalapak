@@ -43,8 +43,12 @@ public class BukalapakPages {
 
 
     public void scrollproduct(){
-        js.executeScript("window.scrollBy(0,400)", "");
+        js.executeScript("window.scrollBy(0,200)", "");
+        js.executeScript("window.scrollBy(0,200)", "");
     }
+public void scrollingfilter(){
+        js.executeScript("document.querySelector(\".sidebar-scroll-area.ps.ps--active-y\").scrollTop=700");
+}
 
 
     public By getElement(String elementLinkText){
@@ -64,5 +68,15 @@ public class BukalapakPages {
     public void buttonLowprice(){
         driver.findElement(buttonlowprice).click();
     }
+
+    private final By chooseFilter = By.xpath("//*[@id=\"product-explorer-container\"]/div/div[1]/div[1]/div/div[2]/div[4]/div[2]/div/label[1]");
+    public void choosefilter(){
+        driver.findElement(chooseFilter).click();
+    }
+    private final By verifyresultFilter = By.xpath("//*[@id=\"product-explorer-container\"]/div/div[1]/div[2]/div/div[1]/div/div[3]/div/p");
+    public String verifyresultfilter(){
+    return driver.findElement(verifyresultFilter).getText();
+    }
 }
+
 

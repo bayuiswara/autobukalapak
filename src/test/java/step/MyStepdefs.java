@@ -48,7 +48,8 @@ public class MyStepdefs {
     }
 
     @And("User Scrolling Product")
-    public void userScrollingProduct() {
+    public void userScrollingProduct()throws InterruptedException {
+        Thread.sleep(1000);
         bl.scrollproduct();
     }
 
@@ -80,6 +81,21 @@ public class MyStepdefs {
     @And("User Choose Sorting")
     public void userChooseSorting() {
         bl.buttonSorting();
+    }
+
+    @And("User Scrolling Filter")
+    public void userScrollingFilter() throws InterruptedException {
+        Thread.sleep(1000);
+        bl.scrollingfilter();
+    }
+
+
+    @And("User Choose filter {string}")
+    public void userChooseFilterDiskon(String text) throws InterruptedException {
+        Thread.sleep(1000);
+        bl.choosefilter();
+        System.out.println(bl.verifyresultfilter());
+        Assertions.assertEquals(text, bl.verifyresultfilter());
     }
 }
 

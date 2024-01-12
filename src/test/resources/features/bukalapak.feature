@@ -21,10 +21,19 @@ Feature: Search Product and choose product
     And  Product '“Sepatu Bola”' displayed
     And  User Choose Sorting
     And  User sort by lowest price
-    And Product Bola Basket sort by 'Termurah'
-    And User Scrolling Product
-    And User choose "Sepatu Bola Karet Yumeida FB NEW Hitam - Sepatu Pria"
+    And  Product Bola Basket sort by 'Termurah'
+    And  User Scrolling Product
+    And  User choose "Sepatu Bola Karet Yumeida FB NEW Hitam - Sepatu Pria"
     Then Product page 'Sepatu Bola Karet Yumeida FB NEW Hitam - Sepatu Pria' displayed
+
+  Scenario: Show Laptop Asus Product in bukalapak market place and choose it
+    When User Input 'Laptop Asus' in search bar
+    And  User Click search
+    And  Product '“Laptop Asus”' displayed
+    And  User Scrolling Filter
+    And  User Choose filter 'Diskon'
+
+
 
 
 
